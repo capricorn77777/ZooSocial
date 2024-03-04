@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('profileImage_url');
+            $table->string('animal_name');
         });
     }
 
