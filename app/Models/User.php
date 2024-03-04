@@ -21,7 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_image',
+        'animal_name',
     ];
+
+    
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,4 +46,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+      // UserとPostのリレーション
+      public function posts()
+      {
+          return $this->hasMany(Post::class);
+      }
+  
+      // UserとCommentのリレーション
+      public function comments()
+      {
+          return $this->hasMany(Comment::class);
+      }
+  
 }
