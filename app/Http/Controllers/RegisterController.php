@@ -26,14 +26,14 @@ class RegisterController extends Controller
             'email' => 'required|string|email|unique:users|max:255',
             'password' => 'required|string|min:8|max:255',
             'animal_name' => 'nullable|string|max:255', // 追加のバリデーションルール
-            'profileImage_url' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // 画像のバリデーションを追加
+            'profileImage_url' => 'nullable|url|max:255', // URLのバリデーションを追加
             // 他の必要なバリデーションルールを追加する
         ]);
 
         // 画像がアップロードされたかどうかを確認
         if ($request->hasFile('profile_image')) {
             // 画像を保存
-            $imagePath = $request->file('profile_image')->store('profile_images');
+            $imagePath = $request->file('profile_image')->store('profile_images', 'public');
             // 画像のURLをデータベースに保存するための準備
             $validatedData['profile_image'] = $imagePath;
         }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\EditController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,11 @@ Route::post('/users/{id}/update', [EditController::class, 'updateUser'])->name('
 
 //user編集画面へ
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+
+// 投稿作成フォーム表示
+Route::get('/posts/create', [PostController::class, 'showCreateForm'])->name('posts.create');
+
+Route::post('/posts/store', [PostController::class, 'create'])->name('posts.store');
+
+

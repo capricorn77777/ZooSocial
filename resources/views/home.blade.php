@@ -13,8 +13,9 @@
         <div class="post">
             <h2>{{ $post->user->animal_name }}</h2>
             <p>{{ $post->content }}</p>
-            @if($post->image_url)
-                <img src="{{ $post->image_url }}" alt="Post Image">
+            @if($post->user->profileImage_url)
+            <img src="{{ asset('storage/' . $post->user->profileImage_url) }}" alt="Post Image">
+
             @endif
         </div>
     @endforeach
@@ -23,6 +24,8 @@
     <div class="navigation">
         <a href="{{ route('edit_user_form', ['id' => auth()->id()]) }}">Edit Profile</a>
         <a href="{{ route('update_user', ['id' => auth()->id()]) }}">Update Profile</a>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary">新規投稿</a>
+
        
     </div>
 </body>

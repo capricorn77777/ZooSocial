@@ -7,6 +7,10 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+    public function showCreateForm()
+    {
+        return view('create');
+    }
     public function create(Request $request)
     {
         // バリデーションルールを定義する（必要に応じて）
