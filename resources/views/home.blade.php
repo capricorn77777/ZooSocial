@@ -14,7 +14,7 @@
             <h2>{{ $post->user->animal_name }}</h2>
             <p>{{ $post->content }}</p>
             @if($post->user->profileImage_url)
-            <img src="{{ asset('storage/' . $post->user->profileImage_url) }}" alt="Post Image">
+            <img src="{{ asset('storage/' . $post->user->profileImage_url) }}" alt="Post Image" style="max-width: 200px; max-height: 200px;>
 
             @endif
         </div>
