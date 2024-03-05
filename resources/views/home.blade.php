@@ -6,6 +6,20 @@
     <title>Home</title>
 </head>
 <body>
+     <!-- Link to other pages -->
+     <div class="navigation">
+        <a href="{{ route('edit_user_form', ['id' => auth()->id()]) }}">Edit Profile</a>
+        <a href="{{ route('update_user', ['id' => auth()->id()]) }}">Update Profile</a>
+        <a href="{{ route('posts.create') }}" class="btn btn-primary">新規投稿</a>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+        
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
+    </div>
+
     <h1>Latest Posts</h1>
 
     <!-- Display the latest posts -->
@@ -20,13 +34,9 @@
         </div>
     @endforeach
 
-    <!-- Link to other pages -->
-    <div class="navigation">
-        <a href="{{ route('edit_user_form', ['id' => auth()->id()]) }}">Edit Profile</a>
-        <a href="{{ route('update_user', ['id' => auth()->id()]) }}">Update Profile</a>
-        <a href="{{ route('posts.create') }}" class="btn btn-primary">新規投稿</a>
+   
 
        
-    </div>
+
 </body>
 </html>
