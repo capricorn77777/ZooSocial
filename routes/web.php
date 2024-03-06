@@ -43,7 +43,10 @@ Route::post('/posts/store', [PostController::class, 'create'])->name('posts.stor
 //logoutリンク
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-//loginリンク
+//loginフォームのリンク
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+//loginメソッドへのポスト
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 
