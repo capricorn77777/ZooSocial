@@ -40,7 +40,10 @@ Route::get('/posts/create', [PostController::class, 'showCreateForm'])->name('po
 Route::post('/posts/store', [PostController::class, 'create'])->name('posts.store');
 
 
-//rogoutリンク
+//logoutリンク
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//loginリンク
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
 
