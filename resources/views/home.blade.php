@@ -58,8 +58,8 @@
 <body>
      <!-- Link to other pages -->
      <div class="navigation">
-        <a href="{{ route('edit_user_form', ['id' => auth()->id()]) }}">Edit Profile</a>
-        <a href="{{ route('update_user', ['id' => auth()->id()]) }}">Update Profile</a>
+        <a href="{{ route('edit', ['id' => auth()->id()]) }}">Edit Profile</a>
+        <a href="{{ route('update_user', ['id' => auth()->id()]) }}">MyPost</a>
         <a href="{{ route('posts.create') }}" class="btn btn-primary">新規投稿</a>
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
         

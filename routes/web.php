@@ -27,8 +27,8 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 //user編集画面へ
-Route::get('/users/{id}/edit', [EditController::class, 'editUserForm'])->name('edit_user_form');
-Route::post('/users/{id}/update', [EditController::class, 'updateUser'])->name('update_user');
+Route::get('/users/{id}/edit', [EditController::class, 'editUserForm'])->name('edit');
+Route::put('/users/{id}/update', [EditController::class, 'updateUser'])->name('update_user');
 
 //user編集画面へ
 Route::get('/home', [HomeController::class, 'index'])->name('home');

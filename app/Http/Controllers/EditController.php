@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class EditController extends Controller
 {
@@ -11,7 +12,7 @@ class EditController extends Controller
       public function editUserForm($id)
       {
           $user = User::findOrFail($id);
-          return view('edit_user_form', ['user' => $user]);
+          return view('edit', ['user' => $user]);
       }
   
       // ユーザー情報を更新する
@@ -26,6 +27,6 @@ class EditController extends Controller
   
           $user->save();
   
-          return redirect()->route('profile')->with('success', 'User updated successfully!');
+          return redirect()->route('home')->with('success', 'User updated successfully!');
       }
 }
