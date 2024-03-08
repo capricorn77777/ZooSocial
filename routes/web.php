@@ -49,4 +49,11 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 //loginメソッドへのポスト
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
+//MyPageへのリンク
+Route::get('/MyPage', [PostController::class, 'showMyPage'])->name('showMyPage')->middleware('auth');
 
+//postを削除するメソッド呼び出し
+Route::delete('/posts/{id}', [PostController::class, 'showCreateForm'])->name('delete_post');
+
+//コメント作成
+Route::post('/posts/{post}/comments', 'CommentController@store')->name('comments.store');
