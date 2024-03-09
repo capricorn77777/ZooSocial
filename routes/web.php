@@ -6,6 +6,7 @@ use App\Http\Controllers\EditController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,5 +56,7 @@ Route::get('/MyPage', [PostController::class, 'showMyPage'])->name('showMyPage')
 //postを削除するメソッド呼び出し
 Route::delete('/posts/{id}', [PostController::class, 'showCreateForm'])->name('delete_post');
 
+//コメント表示
+Route::get('/posts/{post}/comments', [CommentController::class, 'showCommentForm'])->name('comments.show');
 //コメント作成
-Route::post('/posts/{post}/comments', 'CommentController@store')->name('comments.store');
+Route::post('/posts/{post}/comments',  [CommentController::class, 'store'])->name('comments.store');
