@@ -141,11 +141,11 @@
 
         .post-container {
             padding-top: 120px; /* タイトルの高さ + 余白 */
-            
-            
-            justify-content: center; /* 中央揃え */
-            gap: 20px; /* 投稿同士の余白を設定 */
-            margin-left: 320px; /* リンクの幅 + 余白 */
+            display: flex;
+            flex-wrap: wrap; /* 自動的に折り返す */
+            justify-content: space-between; /* 中央揃え */
+            gap: 10px; /* 投稿同士の余白を設定 */
+            margin-left: 220px; /* リンクの幅 + 余白 */
             margin-right: 20%; /* プロフィールとフォームの幅 */
         }
 
@@ -154,10 +154,8 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 6px;
-            width: 100%; /* 幅を三分の一に */
+            width: calc(23% - 20px); /* 幅を三分の一に */
             height: calc(13% - 20px); /* 幅を三分の一に */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 少しの影を追加して立体感を演出 */
-            border: 1px solid rgba(0, 0, 0, 0.2); /* より薄い黒い枠線を追加 */
         }
 
         .post h2 {
@@ -209,7 +207,7 @@
         <a href="{{ route('edit', ['id' => auth()->id()]) }}">Edit Profile</a>
         <a href="{{ route('showMyPage', ['id' => auth()->id()]) }}">YourPostShow</a>
         <a href="{{ route('posts.create') }}">新規投稿</a>
-        <a href="{{ route('follow-post')}}">Follow Animal Post</a> <!-- ここに追加 -->
+        <a href="{{ route('follow-post')}}">Follow Home</a> <!-- ここに追加 -->
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -233,17 +231,17 @@
     <!-- Post Creation Form Container -->
     <div class="form-container">
         <h2>POST</h2>
-        <form method="POST" action="{{ route('posts.store') }}">
-                @csrf
-                <div class="form-group">
-                    <textarea class="form-control border-0" id="content" name="content" rows="5" 
-                    placeholder="What's on your mind?" required></textarea>
-                </div>
-                <input type="submit" value="投稿する"></button>
-         </form>
+        <form action="{{ route('posts.store') }}" method="POST">
+            @csrf
+            <input type="text" name="title" placeholder="タイトル">
+            <textarea name="content" placeholder="What's on your mind?"></textarea>
+            <input type="submit" value="投稿する">
+        </form>
     </div>
 
-
+    <!-- Add the new button and post container here -->
+<!-- ボタン -->
+<button id="togglePosts">Toggle Posts</button>
     <div id="postContainer" div class="post-container">
         <!-- Display the latest posts -->
         @foreach($posts as $post)

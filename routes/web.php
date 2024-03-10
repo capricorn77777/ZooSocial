@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FollowController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,10 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 Route::get('/users/{id}/edit', [EditController::class, 'editUserForm'])->name('edit');
 Route::put('/users/{id}/update', [EditController::class, 'updateUser'])->name('update_user');
 
-//user編集画面へ
+//home画面へ
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+//followしているユーザーのみ表示するhome画面へ
+Route::get('/follow-home', [HomeController::class, 'followIndex'])->name('follow-post');
 
 
 // 投稿作成フォーム表示
@@ -60,3 +63,9 @@ Route::delete('/posts/{id}', [PostController::class, 'showCreateForm'])->name('d
 Route::get('/posts/{post}/comments', [CommentController::class, 'showCommentForm'])->name('comments.show');
 //コメント作成
 Route::post('/posts/{post}/comments',  [CommentController::class, 'store'])->name('comments.store');
+
+//フォロー機能の呼び出し
+Route::post('/follow/{user}', [FollowController::class, 'follow'])->name('follow');
+
+// javascript用のfunction呼び出し
+Route::get('/get-posts', [PostController::class, 'getPosts'])->name('get-posts');

@@ -51,4 +51,12 @@ class PostController extends Controller
     $post->delete();
     return redirect()->route('my_posts')->with('success', 'Post deleted successfully.');
     }
+
+    //javascript用のメソッド
+    public function getPosts()
+{
+    $posts = Post::all();
+
+    return response()->json($posts);
+}
 }

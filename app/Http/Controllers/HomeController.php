@@ -18,4 +18,15 @@ class HomeController extends Controller
         return view('home', compact('posts'));
     }
 
+    public function followIndex()
+{
+    // ログインユーザーがフォローしているユーザーのIDを取得
+    $followingIds = auth()->user()->following()->pluck('users.id');
+
+    // フォローしているユーザーのポストを取得
+    $posts = Post::whereIn('user_id', $followingIds)->latest()->get();
+
+    return view('follow_post', compact('posts'));
+}
+
 }
