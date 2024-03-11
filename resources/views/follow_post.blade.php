@@ -207,7 +207,7 @@
         <a href="{{ route('edit', ['id' => auth()->id()]) }}">Edit Profile</a>
         <a href="{{ route('showMyPage', ['id' => auth()->id()]) }}">YourPostShow</a>
         <a href="{{ route('posts.create') }}">新規投稿</a>
-        <a href="{{ route('follow-post')}}">Follow Home</a> <!-- ここに追加 -->
+        <a href="{{ route('home')}}">Back To Home</a> <!-- ここに追加 -->
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
 
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

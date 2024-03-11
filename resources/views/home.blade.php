@@ -10,6 +10,10 @@
             background-color: #d3f8d3; /* より明るい背景色 */
             margin: 0;
             padding: 0;
+            background-image: url('{{ asset('storage/profile_images/Jungle-tropical-forest-trees-green_1920x1200.jpg') }}');
+            background-size: cover; /* 画像を表示領域に合わせる */
+            background-repeat: no-repeat; /* 画像を繰り返し表示しない */
+            background-position: center center; /* 画像を中央に配置 */
         }
 
         .navigation {
@@ -208,7 +212,7 @@
     <div class="btn-container">
         <a href="{{ route('edit', ['id' => auth()->id()]) }}">Edit Profile</a>
         <a href="{{ route('showMyPage', ['id' => auth()->id()]) }}">YourPostShow</a>
-        <a href="{{ route('posts.create') }}">新規投稿</a>
+        <!-- <a href="{{ route('posts.create') }}">新規投稿</a> -->
         <a href="{{ route('follow-post')}}">Follow Animal Post</a> <!-- ここに追加 -->
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
 
