@@ -73,14 +73,14 @@
             <button type="submit" class="btn btn-primary">Register</button>
         </form>
     </div>
-
     <div class="container">
-    <div class="row justify-content-end">
+    <div class="row justify-content-start">
         <div class="col-auto">
             <a href="{{ route('guest.login') }}" class="btn btn-secondary">ゲストログイン</a>
         </div>
     </div>
-<   /div>
+</div>
+
 
     <!-- Bootstrap JS Bundle (Popper.js included) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
