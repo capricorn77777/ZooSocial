@@ -13,7 +13,7 @@ class CommentController extends Controller
         $comments = $post->comments;
 
         if ($comments->isEmpty()) {
-            return view('onePostShow', compact('post'));
+            return view('onePostShow', compact('post', 'comments'));
         } else {
             return view('onePostShow', compact('post', 'comments'));
         }
