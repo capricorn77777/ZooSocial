@@ -37,6 +37,24 @@ class LoginController extends Controller
         }
     }
 
+    public function guestLogin()
+    {
+        // ゲストユーザーの認証情報
+        $guestCredentials = [
+            'email' => 'guest@example.com',
+            'password' => 'guestpassword',
+        ];
+
+        // ユーザーを認証する
+        if (Auth::attempt($guestCredentials)) {
+            // 認証成功時の処理
+            return redirect()->intended('/home');
+        } else {
+            // 認証失敗時の処理
+            return back()->withErrors(['email' => 'ゲストログインに失敗しました。']);
+        }
+    }
+
     /**
      * ログアウトする
      */

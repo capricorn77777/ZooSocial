@@ -74,6 +74,13 @@
         </form>
     </div>
 
+    <!-- ゲストログインフォーム -->
+    <form method="POST" action="{{ route('guest.login') }}">
+        @csrf
+
+        <button type="submit" class="btn btn-secondary">ゲストログイン</button>
+    </form>
+
     <!-- Bootstrap JS Bundle (Popper.js included) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

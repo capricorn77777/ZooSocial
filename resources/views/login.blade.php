@@ -52,6 +52,11 @@
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
+    
+    <!-- 登録ページへのリンク -->
+    <div class="mb-3">
+        <a href="{{ route('register.form') }}" class="btn btn-link">新規登録はこちら</a>
+    </div>
 
     <!-- Bootstrap JS Bundle (Popper.js included) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

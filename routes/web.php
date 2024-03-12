@@ -53,6 +53,9 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 //loginメソッドへのポスト
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
+//guestLoginボタン
+Route::get('/guest-login', [AuthController::class, 'guestLogin'])->name('guest.login');
+
 //MyPageへのリンク
 Route::get('/MyPage', [PostController::class, 'showMyPage'])->name('showMyPage')->middleware('auth');
 
